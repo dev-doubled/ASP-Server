@@ -100,9 +100,14 @@ class ArtServices {
       await newArtwork.save();
 
       const artService = new ArtServices();
+
       if (newArtwork.isCheckedAds) {
         await artService.schedulePostPush(newArtwork);
       }
+
+      await NotificationService.sendPostArtworkNotificationToFollowers(
+        newArtwork
+      );
 
       return newArtwork;
     } catch (error) {

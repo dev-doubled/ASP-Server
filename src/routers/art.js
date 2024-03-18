@@ -1,7 +1,9 @@
 import express from "express";
-import artController from "../controllers/ArtController.js";
-const router = express.Router();
 
+import artController from "../controllers/ArtController.js";
+
+const router = express.Router();
+//GET METHOD
 router.get("/getArtwork", artController.getAllArtwork);
 router.get("/getArtworkV2", artController.getAllArtworkV2);
 router.get(
@@ -22,6 +24,7 @@ router.get(
   "/getArtworkByCategoryId/:categoryId",
   artController.getArtworkByCategoryId
 );
+//POST METHOD
 router.post("/postArtwork", artController.addArtwork);
 router.post("/add-reaction/:artId", artController.addReaction);
 router.post("/updateArtworkStatus", artController.updateArtworkStatus);

@@ -1,7 +1,6 @@
 import FollowService from "../services/FollowServices.js";
 
 class FollowController {
-
   //[POST] /api/v1/art/follow/createFollow/:followerId/:followingId
   async create(req, res) {
     try {

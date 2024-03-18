@@ -2,7 +2,7 @@ import CategoryServices from "../services/CategoryServices.js";
 
 class CategoryController {
 
-  //[POST]] /api/v1/category/addCategory
+  //[POST] /api/v1/category/addCategory
   async addCategory(req, res, next) {
     try {
       const addCategory = req.body;
