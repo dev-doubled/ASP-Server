@@ -20,7 +20,7 @@ class ReplyCommentService {
             },
           ],
         });
-        
+
         //Send notification
         await NotificationServices.sendReplyCommentNotificationToFollowers(
           replyCommentData

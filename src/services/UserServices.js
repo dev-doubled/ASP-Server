@@ -3,7 +3,7 @@ import { User } from "../models/User.js";
 class UserService {
   async getUserById(userId) {
     try {
-      const viewUser = await User.findOne({ _id: userId });
+      const viewUser = await User.findOne({ _id: userId, status: true });
       if (!viewUser) {
         throw new Error("User not found");
       }
@@ -80,9 +80,12 @@ class UserService {
   async updateStatus(id, updateStatus) {
     try {
       const user = await User.findOne({ _id: id });
+      if (!user) {
+        throw new Error("User not found");
+      }
       user.status = updateStatus.status;
-      await user.save();
-      return user;
+      const updatedUser = await user.save();
+      return updatedUser;
     } catch (error) {
       throw error;
     }
